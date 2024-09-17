@@ -9,10 +9,15 @@ program
     .version('1.0')
     .description('A simple CLI utility to return a geo-located weather forecast based on input location.')
     .argument('<locations...>', 'Specify a single 5-digit zip code, comma separated city/state combination or combination of the two, maximum 10 entries')
-    .action((locations) => {
-        validateLength(locations); // Validate arguments are present and do not exceed 10
-        validateInput(locations); // Validate City/State and zip codes are valid input
-        getWeather(locations);
+    .action(async (locations) => {
+            try {
+                    validateLength(locations); // Ensure locations are valid
+                    validateInput(locations);  // Further input validation
+                    await getWeather(locations); // Fetch and display weather data
+            } catch (error) {
+                    console.error('Error fetching weather data:', error.message);
+                    process.exit(1); // Exit with an error code
+            }
 });
 
 program.parse(process.argv);
