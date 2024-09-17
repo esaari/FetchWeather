@@ -4,15 +4,10 @@ import { getWeather} from "./utils/api/openWeatherMap";
 
 const program = new Command();
 
-
 program
     .name('fetchWeather')
     .version('1.0')
     .description('A simple CLI utility to return a geo-located weather forecast based on input location.')
-    .option(
-        '-l, --locations <locations...>',
-        'Input locations as a 5-digit zip code ("12533") or City/State combination ("New York, NY")'
-    )
     .argument('<locations...>', 'Specify a single 5-digit zip code, comma separated city/state combination or combination of the two, maximum 10 entries')
     .action((locations) => {
         validateLength(locations); // Validate arguments are present and do not exceed 10

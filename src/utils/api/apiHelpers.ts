@@ -1,19 +1,17 @@
 import got from 'got';
-import { KEY } from './key';
 
-export async function getFromEndpoint(uri, params) {
-    console.log(encodeURI(uri + params + `&appid=${ KEY }`));
+export async function getFromEndpoint(uri, params, apiKey) {
+    const countryCode = 'US';  // We will hardcode this function to United States locales
+    const apiKeyParamName = Object.keys(apiKey)[0];
+    const fullUrl = `${ uri }${ encodeURI(params) },${ countryCode }&${ apiKeyParamName }=${ apiKey.appid }`;
+
     try {
-        const response = await got(encodeURI (uri + params + `&appid=${ KEY }`), {
+        const response = await got((fullUrl), {
             responseType: 'json',
         });
-        printData(response.body);
+        return response.body;
     } catch (error) {
         console.error(`Error fetching weather data: ${error.message}`);
+        throw error;
     }
-}
-
-export function printData(responseData) {
-    console.log(`The current weather condition in ${responseData.name} are supposedly ${responseData.weather[0].main} with ${responseData.weather[0].description}`);
-    console.log(`${responseData.name} has a Latitude of: ${responseData.coord.lat} and a Longitude of: ${responseData.coord.lon}\n`)
 }
