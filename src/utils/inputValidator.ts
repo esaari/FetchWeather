@@ -6,23 +6,22 @@ const unusedVar = 'test';
 
 export function validateInput(locations) {
     if (!locations) {
-        console.error(`Expected a list of locations, but received: ${ locations }`)
+        throw new Error(`Expected a list of locations, but received: ${locations}`);
     }
     locations.forEach((argument, index) => {
-                    if (!zipCodeRegex.test(argument) && !cityStateRegex.test(argument)) {
-            console.error(`ERROR: ${ argument } at index ${ index } must be a valid 5-digit zip code (ex. "12533") or City,State (ex. "New York, NY)`);
+        if (!zipCodeRegex.test(argument) && !cityStateRegex.test(argument)) {
+            throw new Error(`ERROR: ${argument} at index ${index} must be a valid 5-digit zip code or City,State`);
         }
-    })
+    });
 }
 
 export function validateLength(locations) {
     if (!locations) {
-        console.error(`Expected a list of locations, but received: ${ locations }`)
+        throw new Error(`Expected a list of locations, but received: ${locations}`);
     }
     if (locations.length === 0) {
-        program.help({error: true});
+        throw new Error('No locations provided. Please specify at least one location.');
     } else if (locations.length > MAX_ARGS) {
-        console.error('ERROR: Too many arguments. Please input no more than 10 locations.');
-        process.exit(1);
+        throw new Error('ERROR: Too many arguments. Please input no more than 10 locations.');
     }
 }
