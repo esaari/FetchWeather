@@ -16,7 +16,7 @@ program
                     await getWeather(locations); // Fetch and display weather data
             } catch (error) {
                     console.error('Error fetching weather data:', error.message);
-                    process.exit(1); // Exit with an error code
+                    process.exit(1);
             }
 });
 

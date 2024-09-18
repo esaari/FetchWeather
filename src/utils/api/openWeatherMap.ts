@@ -17,12 +17,15 @@ function addCorrectParam(location) {
     if (zipRegEx.test(location)) {
         return `/?zip=${ location }`;
     } else {
-        location = location.split(',')
+        location = location.split(',');
         return `/?q=${ location[0] },${ location[1].trim() }`;
     }
 }
 
 function printData(locationInfo) {
+    if (!locationInfo) {
+        console.error(`Expected valid geolocation data, got: ${ locationInfo }`);
+    }
     console.log(`The current weather condition in ${locationInfo.name} is supposedly ${locationInfo.weather[0].main} with ${locationInfo.weather[0].description}`);
-    console.log(`${locationInfo.name} has a Latitude of: ${locationInfo.coord.lat} and a Longitude of: ${locationInfo.coord.lon}\n`)
+    console.log(`${locationInfo.name} has a Latitude of: ${locationInfo.coord.lat} and a Longitude of: ${locationInfo.coord.lon}\n`);
 }
