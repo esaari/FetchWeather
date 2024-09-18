@@ -35,7 +35,7 @@ export default defineConfig({
   projects: [
     {
       name: 'unit-tests',
-      use: { },
+      use: {  ...devices['']},
     }
 
 /*    {

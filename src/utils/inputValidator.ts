@@ -2,8 +2,6 @@ const MAX_ARGS = 10;
 const zipCodeRegex = /^\d{5}$/;
 const cityStateRegex = /^[A-Za-z\s]+,\s*[A-Za-z]{2}$/;
 
-const unusedVar = 'test';
-
 export function validateInput(locations) {
     if (!locations) {
         throw new Error(`Expected a list of locations, but received: ${locations}`);
