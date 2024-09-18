@@ -1,15 +1,16 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "playwright.config.ts",
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "scripts": {
     "test": "playwright test",
-    "test:unit": "playwright test /unit",
-    "test:integration": "playwright test /integration"
+    "test:unit": "playwright test tests/unit",
+    "test:integration": "playwright test tests/integration"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.1",

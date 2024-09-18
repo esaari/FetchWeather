@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.fullValidResponse = void 0;
-exports.fullValidResponse = Object.freeze({
+export const fullValidResponse = Object.freeze({
     coord: { lon: -118.4065, lat: 34.0901 },
     weather: [{ id: 800, main: 'Clear', description: 'clear sky', icon: '01d' }],
     base: 'stations',

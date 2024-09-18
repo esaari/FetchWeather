@@ -2,6 +2,8 @@
   "name": "weather-app",
   "version": "1.0.0",
   "description": "A Node.js application to fetch weather data using OpenWeatherMap API",
+  "type": "module",
+  "main": "/src/fetchWeather.ts",
   "scripts": {
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
     "lint:fix": "eslint 'src/**/*.ts' 'test/**/*.ts' --fix"
