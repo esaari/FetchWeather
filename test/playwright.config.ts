@@ -34,7 +34,7 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'unit-tests',
+      name: 'Unit and Integration Tests',
       use: {  ...devices['']},
     }
 
