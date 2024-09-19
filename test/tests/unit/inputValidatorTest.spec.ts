@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { validateInput, validateLength } from '../../../../src/utils/inputValidator';
+import { validateInput, validateLength } from '../../../src/utils/inputValidator';
 
-test.describe('validateInput Function', () => {
+test.describe('validateInput(string[]) Unit Tests', () => {
     test('should throw an error when locations is null', () => {
         expect(() => validateInput(null)).toThrowError(
             'Expected a list of locations, but received: null'
@@ -39,7 +39,7 @@ test.describe('validateInput Function', () => {
     });
 });
 
-test.describe('validateLength Function', () => {
+test.describe('validateLength(string[]) Unit Tests', () => {
     test('should throw an error when locations is null', () => {
         expect(() => validateLength(null)).toThrowError(
             'Expected a list of locations, but received: null'

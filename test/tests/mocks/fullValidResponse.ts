@@ -1,6 +1,6 @@
-export const fullValidResponse = Object.freeze({
+export const response = {
     coord: { lon: -118.4065, lat: 34.0901 },
-    weather: [{ id: 800, main: 'Clear', description: 'clear sky', icon: '01d' }],
+    weather: [ { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' } ],
     base: 'stations',
     main: {
         temp: 295.28,
@@ -27,4 +27,4 @@ export const fullValidResponse = Object.freeze({
     id: 0,
     name: 'Beverly Hills',
     cod: 200
-});
+};

@@ -1,8 +1,10 @@
 import { KEY } from './key'
 import { getFromEndpoint } from './apiHelpers';
 
+
 // Base URI for OpenWeather API
-const BASE_URI = 'https://api.openweathermap.org/data/2.5/weather';
+export const BASE_URI = 'https://api.openweathermap.org';
+export const API_PATH = '/data/2.5/weather';
 
 /**
  * Fetches weather data for a list of locations.
@@ -14,11 +16,13 @@ export async function getWeather(
     fetcher: typeof getFromEndpoint = getFromEndpoint
 ) {
     for (const location of locations) {
+        console.log("LOCATION", location)
         try {
             const queryParam = addCorrectParam(location);
-            const locationInfo = await fetcher(BASE_URI, queryParam, KEY);
+            console.log(BASE_URI + API_PATH + queryParam + KEY.appid)
+            const locationInfo = await fetcher(BASE_URI + API_PATH, encodeURI(queryParam), KEY);
             printData(locationInfo);
-        } catch (error: any) {
+        } catch (error) {
             console.error(`Failed to fetch data for ${location}: ${error.message}`);
         }
     }
@@ -37,7 +41,7 @@ function addCorrectParam(location: string): string {
     }
 }
 
-function printData(locationInfo: any) {
+function printData(locationInfo) {
     if (!locationInfo) {
         console.error(`Expected valid geolocation data, got: ${locationInfo}`);
         return;

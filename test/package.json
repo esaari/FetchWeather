@@ -14,8 +14,10 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.47.1",
+    "@types/nock": "^10.0.3",
     "@types/node": "^22.5.5",
     "eslint-plugin-playwright": "^1.6.2",
+    "nock": "^13.5.5",
     "playwright": "^1.47.1"
   }
 }
