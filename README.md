@@ -20,11 +20,15 @@ This will assume Node is pre-installed on the host system.
 Execute as follows: 
 
 `npm i`
+
 `npx tsx ./src/fetchWeather.ts "12533" "Jersey City, NJ" "Las Vegas, NV" "90210"`
 
 To execute tests: 
 
 `cd test`
+
 `npm i` (install test dependencies)
+
 `npm run test:unit` (run unit tests)
+
 `npm run test:integration` (run integration tests)
