@@ -10,8 +10,8 @@ The mocking and interception features only work with browser object fixtures, so
 for capturing network traffic. 
 
 I had some challenges and lessons learned going throguh this assignment, which I'd love to be able to discuss in more 
-deatail. Notably, rather than staring a new project from scratch, I should have embraced "code reusability" and looked 
-for a boilerplate project that had the Typescript/JS interoperability already set up so save time. I also should have 
+detail. Notably, rather than staring a new project from scratch, I should have embraced "code reusability" and looked 
+for a boilerplate project that had the Typescript/JS interoperability already set up to save time. I also should have 
 chosen a traditional unit test runner such as Mocha or Jasmine, but I'm happy I discovered some of Playwright's limitations.
 
 
